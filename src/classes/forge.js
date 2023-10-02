@@ -6,7 +6,7 @@ const { BufferWriter, Transaction } = nimble.classes
 const { writeVarint } = nimble.functions
 
 const defaults = {
-  rates: { data: 50, standard: 50 },
+  rates: { data: 1, standard: 1 },
   sort: false,
 }
 
@@ -168,7 +168,7 @@ export class Forge {
       return sum + (bytes[type] * rate / 1000)
     }, 0)
 
-    return Math.ceil(fee)
+    return Math.floor(fee)
   }
 
   /**
